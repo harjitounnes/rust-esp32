@@ -66,6 +66,7 @@ else
 fi
 
 source "$HOME/.cargo/env"
+echo 'source "$HOME/.cargo/env"' >> ~/.bashrc
 
 rustc --version
 cargo --version
@@ -82,6 +83,7 @@ CARGO_TOOLS=(
     ldproxy
 )
 
+
 for tool in "${CARGO_TOOLS[@]}"; do
     if cargo_pkg_installed "$tool"; then
         echo "✔ $tool already installed"
@@ -91,8 +93,14 @@ for tool in "${CARGO_TOOLS[@]}"; do
     fi
 done
 
+espup install
+
+source "$HOME/export-esp.sh"
+echo 'source "$HOME/export-esp.sh"' >> ~/.bashrc
+
+
 echo "=============================="
 echo " Setup completed successfully "
 echo "=============================="
-echo "Workspace location: $ESP_BASE"
+
 echo "Restart terminal or run: source ~/.bashrc"

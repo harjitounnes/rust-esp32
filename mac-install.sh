@@ -84,6 +84,7 @@ else
   echo "✔ Rust already installed"
 fi
 
+echo 'source "$HOME/.cargo/env"' >> ~/.bashrc
 source "$HOME/.cargo/env"
 
 rustc --version
@@ -109,6 +110,11 @@ for tool in "${CARGO_TOOLS[@]}"; do
     cargo install "$tool"
   fi
 done
+
+espup install
+
+echo 'source "$HOME/export-esp.sh"' >> ~/.bashrc
+source "$HOME/export-esp.sh"
 
 
 echo "=============================="
