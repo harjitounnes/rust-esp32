@@ -93,6 +93,7 @@ for tool in "${CARGO_TOOLS[@]}"; do
     fi
 done
 
+cd $HOME
 espup install
 
 source "$HOME/export-esp.sh"
