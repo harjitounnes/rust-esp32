@@ -5,5 +5,5 @@
 ### Untuk linux debian dan turunannya
 
 ```
-curl -fsSL https://raw.githubusercontent.com/harjitounnes/rust-esp32/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/harjitounnes/rust-esp32/main/deb-install.sh | bash
 ```
