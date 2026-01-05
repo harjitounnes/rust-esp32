@@ -93,8 +93,10 @@ for tool in "${CARGO_TOOLS[@]}"; do
     fi
 done
 
-exec bash
 
+source "$HOME/.cargo/env"
+exec bash
+echo "installing toolchain.."
 espup install
 
 source "$HOME/export-esp.sh"
