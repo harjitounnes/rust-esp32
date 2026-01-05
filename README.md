@@ -16,4 +16,16 @@ Pastikan sudah terinstall homebrew
 ```
 curl -fsSL https://raw.githubusercontent.com/harjitounnes/rust-esp32/main/mac-install.sh | bash
 ```
+## Memulai project
+```
+cargo generate esp-rs/esp-idf-template cargo
+```
+- Project name: [nama project]
+- Pilih MCU: sesuai hardware yang digunakan
+- Option:false
 
+## Build project
+``` 
+cd [nama_project]
+cargo build
+```
