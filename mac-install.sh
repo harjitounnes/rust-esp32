@@ -98,6 +98,7 @@ CARGO_TOOLS=(
   cargo-generate
   cargo-espflash
   espup
+  ldproxy
 )
 
 for tool in "${CARGO_TOOLS[@]}"; do
@@ -109,65 +110,6 @@ for tool in "${CARGO_TOOLS[@]}"; do
   fi
 done
 
-# -----------------------------
-# ESP Rust toolchain
-# -----------------------------
-if [[ -f "$HOME/export-esp.sh" ]]; then
-  echo "✔ ESP Rust toolchain already installed"
-else
-  echo "➜ Installing ESP Rust toolchain (espup)..."
-  espup install
-fi
-
-# -----------------------------
-# ESP-IDF install
-# -----------------------------
-echo "Checking ESP-IDF in $ESP_IDF_DIR ..."
-
-if [[ -d "$ESP_IDF_DIR/.git" ]]; then
-  echo "✔ ESP-IDF already installed"
-else
-  echo "➜ Installing ESP-IDF..."
-  mkdir -p "$ESP_BASE"
-  cd "$ESP_BASE"
-  git clone -b v5.1.2 --recursive https://github.com/espressif/esp-idf.git
-fi
-
-# -----------------------------
-# Environment setup
-# -----------------------------
-echo "Configuring environment variables in $SHELL_RC ..."
-
-if ! grep -q "ESP_IDF_DIR=" "$SHELL_RC"; then
-  cat <<EOF >> "$SHELL_RC"
-
-# === ESP Rust + ESP-IDF ===
-export ESP_IDF_DIR="$ESP_IDF_DIR"
-export IDF_PATH="\$ESP_IDF_DIR"
-[ -f "\$HOME/export-esp.sh" ] && source "\$HOME/export-esp.sh"
-[ -f "\$ESP_IDF_DIR/export.sh" ] && source "\$ESP_IDF_DIR/export.sh"
-EOF
-  echo "✔ Environment added"
-else
-  echo "✔ Environment already configured"
-fi
-
-# Apply env for current shell
-export IDF_PATH="$ESP_IDF_DIR"
-source "$HOME/export-esp.sh"
-source "$ESP_IDF_DIR/export.sh"
-
-# -----------------------------
-# Verification
-# -----------------------------
-echo "=============================="
-echo " Verifying installation "
-echo "=============================="
-
-echo "IDF_PATH = $IDF_PATH"
-
-command_exists ldproxy && ldproxy --version || echo "⚠ ldproxy not found"
-command_exists idf.py && idf.py --version || echo "⚠ idf.py not found"
 
 echo "=============================="
 echo " Setup completed successfully "
