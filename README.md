@@ -35,6 +35,6 @@ cargo build
 <p align="center">
   <a href="https://www.youtube.com/watch?v=FLCmosDO4fI">
     <img src="https://img.youtube.com/vi/FLCmosDO4fI/0.jpg" width="600">
-  </a>
+  </a><br />
   <span>Klik Untuk tonton demo.</span>
 </p>
