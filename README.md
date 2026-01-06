@@ -29,3 +29,11 @@ cargo generate esp-rs/esp-idf-template cargo
 cd [nama_project]
 cargo build
 ```
+
+## Demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=VFLCmosDO4fI">
+    <img src="https://img.youtube.com/vi/FLCmosDO4fID/maxresdefault.jpg" width="600">
+  </a>
+</p>
