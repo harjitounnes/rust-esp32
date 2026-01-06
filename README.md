@@ -34,6 +34,6 @@ cargo build
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=VFLCmosDO4fI">
-    <img src="https://img.youtube.com/vi/FLCmosDO4fID/maxresdefault.jpg" width="600">
+    <img src="https://img.youtube.com/vi/FLCmosDO4fID/0.jpg" width="600">
   </a>
 </p>
